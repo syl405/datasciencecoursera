@@ -52,3 +52,15 @@ full_set = full_set[,selected_cols]
 rm(features,split_features,selected_cols)
 
 #create independent dataset of values averaged by subject and activity
+factors = interaction(full_set$subject,full_set$activity)
+split_set = split(full_set,factors)
+split_avg = as.data.frame(aperm(sapply(split_set,function(x) colMeans(x[,3:68])),c(2,1)))
+factor_levels = levels(factors)
+factor_levels = lapply(factor_levels,strsplit,'.',T)
+subject = sapply(factor_levels,function(x) x[[1]][1])
+activity = sapply(factor_levels,function(x) x[[1]][2])
+split_avg = cbind(subject,activity,split_avg)
+var_names = colnames(split_avg)[3:68]
+var_names = sapply(var_names,paste," (averaged)")
+colnames(split_avg) = c("subject","activity",var_names)
+rownames(split_avg) = 1:180
