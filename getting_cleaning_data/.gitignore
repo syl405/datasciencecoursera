@@ -1,2 +1,5 @@
 # ignore dataset
 har_data/**/*
+
+# ignore vim swap files
+*.swp
