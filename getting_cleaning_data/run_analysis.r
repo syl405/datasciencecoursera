@@ -64,3 +64,6 @@ var_names = colnames(split_avg)[3:68]
 var_names = sapply(var_names,paste," (averaged)")
 colnames(split_avg) = c("subject","activity",var_names)
 rownames(split_avg) = 1:180
+
+#write new averaged dataset to file
+write.table(split_avg, file = "subject_activity_avg.txt", row.names=F)
