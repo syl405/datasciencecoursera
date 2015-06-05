@@ -1,0 +1,4 @@
+Project Report
+==============
+Course: Statistical Inference  
+Author: Shien Yang Lee
