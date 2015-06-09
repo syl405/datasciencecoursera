@@ -29,9 +29,17 @@ Since the sample mean is an unbiased estimate for population mean, the expected 
 ```{r mean_compare}
 E_xbar = mean(xbar)
 mean_prct_err = (E_xbar - (1/lambda))/(1/lambda) * 100
+
+library(ggplot2)
+mean_plot = ggplot(data = data.frame(xbar = xbar), aes(x = xbar))
+mean_plot = mean_plot + geom_histogram()
+mean_plot = mean_plot + geom_vline(xintercept = E_xbar, colour = "red")
+mean_plot = mean_plot + geom_vline(xintercept = 1/lambda, colour = "green")
+mean_plot = mean_plot + ggtitle("Histogram of 1000 sample means (n = 40) \n from an exponential distribution (rate = 0.2)")
+print(mean_plot)
 ```
 
-The empirical mean of the 1000 sample means is ```r E_xbar```, which represents a ```r mean_prct_err```% difference from the theoretical mean.
+The empirical mean of the 1000 sample means is ```r E_xbar```, which represents a ```r mean_prct_err```% difference from the theoretical mean. The empirical mean (red line) and theoretical mean (green line) are plotted on a histogram of the 1000 sample means, showing the close agreement between the two values.
 
 ## Sample Variance vs. Theoretical Variance
 
@@ -41,6 +49,9 @@ Another important result underpinning the postulates of the CLT is that the stan
 Var_xbar = (sd(xbar))^2
 Var_x = (1/lambda)^2
 Var_prct_err = (Var_xbar - Var_x)/Var_x * 100
+
+library(ggplot2)
+
 ```
 
 The empirical variance of the 1000 sample means is ```r Var_xbar```, which represents a ```Var_prct_err```% difference from the theoretical variance.
