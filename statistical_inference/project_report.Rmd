@@ -1,13 +1,49 @@
-Project Report
-==============
+# Project Report
 Course: Statistical Inference  
 Author: Shien Yang Lee
 
-#H2 Overview
+## Overview
 
 This report explores the behaviour and properties of the Central Limit Theorem (CLT) by applying it to an exponential distribution. 1000 independent samples of 40 observations each are simulated and their sample means calculated. A rate parameter, lambda, of 0.2 is held constant for all simulations carried out herein.
 
 ```{r lambda_declaration, results='hide'}
 lambda = 0.2
 ```
+
+## Simulations
+
+A single simulation entails drawing a sample of size 40 from the exponentially distributed population and calculating the sample mean. This procedure is repeated 1000 times to obtain a sample of 1000 empirical means, which is stored in the vector 'xbar'. Subsequent analysis involving the CLT will focus on this collection of sample means.
+
+```{r simulations, results='hide'}
+set.seed(1)
+xbar = NULL
+for (i in 1:1000) {
+  xbar[i] = mean(rexp(40,rate = lambda))
+}
+```
+
+## Sample Mean vs. Theoretical Mean
+
+Since the sample mean is an unbiased estimate for population mean, the expected value of the sample mean is equal to the true population mean of the underlying distribution. In this case, we know that the underlying population is exponentially distributed with a theoretical mean of ```r 1/lambda```.
+
+```{r mean_compare}
+E_xbar = mean(xbar)
+mean_prct_err = (E_xbar - (1/lambda))/(1/lambda) * 100
+```
+
+The empirical mean of the 1000 sample means is ```r E_xbar```, which represents a ```r mean_prct_err```% difference from the theoretical mean.
+
+## Sample Variance vs. Theoretical Variance
+
+Another important result underpinning the postulates of the CLT is that the standard deviation of the sample mean, commonly known as the standard error of the mean, is related to the standard deviation of the underlying distribution by a factor of 1/(n^0.5). In this analysis, the sample and theoretical variability will be evaluated by comparing variances instead of standard deviations.
+
+```{r variance_compare}
+Var_xbar = (sd(xbar))^2
+Var_x = (1/lambda)^2
+Var_prct_err = (Var_xbar - Var_x)/Var_x * 100
+```
+
+The empirical variance of the 1000 sample means is ```r Var_xbar```, which represents a ```Var_prct_err```% difference from the theoretical variance.
+
+## Distribution
 
