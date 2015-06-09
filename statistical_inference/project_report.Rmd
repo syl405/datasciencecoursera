@@ -2,3 +2,12 @@ Project Report
 ==============
 Course: Statistical Inference  
 Author: Shien Yang Lee
+
+#H2 Overview
+
+This report explores the behaviour and properties of the Central Limit Theorem (CLT) by applying it to an exponential distribution. 1000 independent samples of 40 observations each are simulated and their sample means calculated. A rate parameter, lambda, of 0.2 is held constant for all simulations carried out herein.
+
+```{r lambda_declaration, results='hide'}
+lambda = 0.2
+```
+
