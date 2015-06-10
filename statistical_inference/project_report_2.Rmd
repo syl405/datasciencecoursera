@@ -1,0 +1,4 @@
+---
+output: pdf_document
+---
+# Project Report - Statistical Inference on ToothGrowth dataset
