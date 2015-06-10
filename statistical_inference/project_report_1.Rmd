@@ -1,3 +1,6 @@
+---
+output: pdf_document
+---
 # Project Report
 Course: Statistical Inference  
 Author: Shien Yang Lee
