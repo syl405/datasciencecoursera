@@ -1,0 +1,13 @@
+The Health and Economic Effects of Major Weather Events in the US
+=================================================================
+The N
+
+## Data Analysis
+```{r load_data, cache = T, results = "hide"}
+download.file("https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2",
+              "storm_data.csv.bz2",
+              method = "curl")
+data = read.csv("storm_data.csv.bz2")
+```
+
+## Results

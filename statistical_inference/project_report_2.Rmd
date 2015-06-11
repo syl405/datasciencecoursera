@@ -1,0 +1,27 @@
+---
+output: html_document
+---
+# Project Report - Analysis of ToothGrowth dataset
+Course: Statistical Inference  
+Author: Shien Yang Lee
+
+## Exploratory Analysis
+The ToothGrowth dataset is included in the datasets package of R. The dataset contains data from a scientific study in which the response is the length of odontoblasts (teeth) in each of 10 guinea pigs at each of three dose levels of Vitamin C (0.5, 1, and 2 mg) with each of two delivery methods (orange juice or ascorbic acid).
+
+```{r load_data, fig.height=2}
+# load data
+library(datasets)
+data(ToothGrowth)
+
+# exploratory plot
+library(ggplot2)
+reg_plot = ggplot(data = ToothGrowth, aes(x = dose, y = len))
+reg_plot = reg_plot + geom_point()
+reg_plot = reg_plot + stat_smooth(method = "lm", se = F)
+reg_plot = reg_plot + facet_grid(.~supp)
+print(reg_plot)
+box_plot = ggplot(data = ToothGrowth, aes(x = supp, y = len))
+box_plot = box_plot + geom_boxplot()
+print(box_plot)
+```
+
