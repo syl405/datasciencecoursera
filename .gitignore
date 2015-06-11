@@ -1,2 +1,5 @@
 # ignore R generated data and command history files
 .R*
+
+# ignore knitr cache folders
+**/*_cache/**

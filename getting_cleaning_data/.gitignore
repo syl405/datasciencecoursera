@@ -1,5 +1,0 @@
-# ignore dataset
-har_dataset/**/*
-
-# ignore vim swap files
-*.swp
