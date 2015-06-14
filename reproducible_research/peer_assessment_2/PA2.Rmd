@@ -3,6 +3,7 @@ The Health and Economic Effects of Major Weather Events in the US
 The N
 
 ## Data Analysis
+Perhaps the most challenging aspect of analysing this dataset involves handling the non-standardised variation in the documentation of event type. A more comprehensive analysis than the one undertaken here would most likely necessitate reclassifying observations into a smaller number of event type categories, perhaps according to standards published by the National Weather Service. Given the prevalence of cryptic jargon in the existing data, such a process would likely be a complex one possibly requiring the input of a subject matter expert. Such complexity is not necessary for the current analysis, where the goal is to identify the types of weather events which incur the largest 
 ```{r load_data, cache = T, results = "hide"}
 download.file("https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2",
               "storm_data.csv.bz2",
